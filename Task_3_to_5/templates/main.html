@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+<h1>User: {{ user_name }}</h1>
+
+<h2>Subscription(s)</h2>
+{% for subscription in subscriptions %}
+    <p>{{ subscription.title }}, {{ subscription.artist }}, {{ subscription.year }}</p>
+    <img src="{{ subscription.image_url }}" alt="Artist Image">
+    <form method="post" action="{{ url_for('remove') }}">
+        <input type="hidden" name="title" value="{{ subscription.title }}">
+        <input type="submit" value="Remove">
+    </form>
+{% endfor %}
+<hr>
+<h2>Query</h2>
+Please enter at least one query condition.
+<br><br>
+<form method="post">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="year">Year:</label><br>
+    <input type="text" id="year" name="year"><br>
+    <label for="artist">Artist:</label><br>
+    <input type="text" id="artist" name="artist"><br><br>
+    <input type="submit" value="Query">
+</form>
+{% if query_result %}
+    {% if query_result == "No result is retrieved. Please query again." %}
+        <p style="color: red;">{{ query_result }}</p>
+    {% elif query_result == "Please enter at least one query condition!" %}
+        <p style="color: red;">{{ query_result }}</p>
+    {% else %}
+        {% for item in query_result %}
+            <p>{{ item.title }}, {{ item.artist }}, {{ item.year }}</p>
+            <img src="{{ item.image_url }}" alt="Artist Image">
+            {% if item.title in subscribed_titles %}
+                <br>
+                <button type="button" disabled>Subscribed</button>
+            {% else %}
+                <form method="post" action="{{ url_for('subscribe') }}">
+                    <input type="hidden" name="title" value="{{ item.title }}">
+                    <input type="hidden" name="artist" value="{{ item.artist }}">
+                    <input type="hidden" name="year" value="{{ item.year }}">
+                    <input type="submit" value="Subscribe">
+                </form>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+<hr>
+<a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

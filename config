@@ -1,0 +1,41 @@
+# Amazon Web Services Config File used by AWS CLI, SDKs, and tools
+# This file was created by the AWS Toolkit for JetBrains plugin.
+#
+# Your AWS credentials are represented by access keys associated with IAM users.
+# For information about how to create and manage AWS access keys for a user, see:
+# https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
+#
+# This config file can store multiple access keys by placing each one in a
+# named "profile". For information about how to change the access keys in a
+# profile or to add a new profile with a different access key, see:
+# https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html
+#
+# If both a credential and config file exists, the values in the credential file
+# take precedence
+
+[default]
+aws_access_key_id=ASIA5AZD2JNDGCHDTCNG
+aws_secret_access_key=U4VdiFEqZfhqofOUvZSN1v76yD7QjSL/u6qMXc9V
+aws_session_token=IQoJb3JpZ2luX2VjEHUaCXVzLXdlc3QtMiJHMEUCIDvPMeJDuOphPjbmMaNi49Tmq19j5+vDWPoYD9RoqXxZAiEA0NTVEio8yJAgaQLyIz54cRJ3g7/QyeIxzgQNlkS1VfcqvwIInv//////////ARADGgw4OTUwMzg5MzM4MzAiDMSEIMmgvpkyyo4RFCqTAvBfVN8V9I/Rnc3z1jLc/KsaPAQJjHCPUpge3q2qU1sU9Kse/zg6PU/uXhBIKJheZ5ER4q83SOVBw8D3f7/Zk+W46zz4CjSjOYVecVsGThWiU8q4dHoKCzaiWiiWC3SPrahzAzTI4qCIptABxrv0E6XAg+gxW6oro/n/jVYPCFvWlnBr7IDoHNSVDj+z02OIX0EpaFW/KtGdihn+xav7LSBNCJ3Kt4vMX1jCJyib2afFGSYBbiJkzwC+yrQSiahk7qbce/ipYlxZECAft6uNl+YDnsflTAsR+cCU4di5dvn2bGY6r9F2qMIxb+li6kPFpZzqjK6SxEPDtoT88Ew48oXGtxFoxSHi9AZ+O7xY8/p0yOQ/MMz/vbAGOp0BXGZJLP6sw6IB9QR9ioObci9l7mTF2SRk+OONv3tTobjdtzcOU9DuqQ/bJRSXD5Fm6cR1gOWksL4ZlmQ/dH4NEB5VDpiNIGvj9mhLM21o/xhPLAL+n9UPeXQ8D3R3xaCDOlMqRGsAInQWNHlW+e5ofAYcqUEg+++k0+RqPAHpgjk7WB0GwWm3xXGkw8F5/hMs0lHpQye9DSCbSZ6Ekw==
+
+# [profile user1]
+# aws_access_key_id = [accessKey1]
+# aws_secret_access_key = [secretKey1]
+
+
+# AWS IAM Identity Center (successor to AWS Single Sign-On) helps you stay logged into AWS tools 
+# without needing to enter your info all the time
+# For information about how to create and manage AWS IAM Identity Center see:
+# https://docs.aws.amazon.com/singlesignon/latest/userguide/get-started-enable-identity-center.html
+# For more information on how to configure this file to use AWS IAM Identity Center, see:
+# https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html
+
+# [sso-session my-sso]
+# sso_region = us-east-1
+# sso_start_url = https://my-sso-portal.awsapps.com/start
+# sso_registration_scopes = sso:account:access
+
+# [profile dev]
+# sso_session = my-sso
+# sso_account_id = 111122223333
+# sso_role_name = SampleRole
